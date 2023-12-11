@@ -1,7 +1,7 @@
 import webIamage from "../assets/web-development.jpg";
 const About = () => {
   return (
-    <div className="min-h-screen flex justify-center items-center gap-10 w-3/4 mx-auto text-white">
+    <div id="About" className="min-h-screen flex justify-center items-center gap-10 w-3/4 mx-auto text-white">
       <div className="w-2/3">
         <h3 className="py-3 px-8 text-5xl font-medium  border-2 border-[#11F3D3] w-fit rounded-tl-[30px] rounded-br-[30px] mb-10 duration-1000 hover:scale-110">
           About Me

@@ -8,7 +8,7 @@ import { FiDownload } from "react-icons/fi";
 
 const Banner = () => {
   return (
-    <div className="pb-20">
+    <div id="Home" className="pb-20">
       <div>
         <h1 className="text-7xl font-bold py-10 text-center text-[#11F3D3]">
           Developer
