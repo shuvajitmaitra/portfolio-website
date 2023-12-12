@@ -12,12 +12,12 @@ const Banner = () => {
   return (
     <div id="Home" className="pb-20">
       <div>
-        <h1 className="text-7xl font-bold py-10 text-center text-[#11F3D3]">
+        <h1 className="text-5xl lg:text-7xl font-bold py-10 text-center text-[#11F3D3]">
           Developer
         </h1>
       </div>
-      <div className="flex w-3/4 mx-auto text-white ">
-        <div className="h-[380px] flex flex-col justify-center items-center gap-3 w-[600px]  rounded-tl-[100px] rounded-br-[100px] text-center border-2 hover:border-[#11F3D3]">
+      <div className="flex flex-col md:flex-row space-y-5 md:gap-10 xl:w-3/4 mx-5 xl:mx-auto text-white ">
+        <div className="h-[380px] flex flex-col justify-center items-center gap-3 lg:w-[600px]  rounded-tl-[100px] rounded-br-[100px] text-center border-2 hover:border-[#11F3D3]">
           
          <div>
           <img
@@ -41,19 +41,19 @@ const Banner = () => {
           </ul>
           <a href={resume} download={resume} className="flex items-center gap-2 justify-center p-2 bg-white rounded-full w-3/4 mx-auto text-zinc-600 duration-1000 hover:scale-110">Download CV <FiDownload/></a>
         </div>
-        <div className="px-20 space-y-3 ">
-          <h2 className="text-5xl font-bold">
+        <div className="lg:px-20 space-y-3 ">
+          <h2 className="text-3xl md:text-5xl font-bold">
             <span></span>Hey <br /> I’m{" "}
             <span className="text-[#11F3D3]">Shuvajit</span>, <br /> MERN
             Developer
           </h2>
-          <p className="max-w-7xl">
+          <p className="max-w-7xl text-xs md:text-base">
           Versatile web developer with expertise in HTML, CSS, JavaScript, React, ExpressJs, and MongoDB.
 Proven dedication, strong teamwork, and a drive to excel. Eager to contribute skills and evolve into a
 lead developer in a dynamic work setting.
           </p>
         </div>
-        <div className="h-[300px] w-[300px] border-2 hover:border-[#11F3D3] rounded-[50px] duration-1000 hover:scale-110 flex flex-col justify-center items-center gap-5">
+        <div className="h-20 md:h-[300px] md:w-[300px] border-2 hover:border-[#11F3D3] rounded-[50px] duration-1000 hover:scale-110 flex md:flex-col justify-center items-center gap-5">
           <Link to={'https://www.linkedin.com/in/shuvajit-maitra/'} target="_blank" className="bg-[#11F3D3] p-1 shadow-lg rounded-full hover:shadow-[#11F3D3] duration-1000 hover:scale-110 ">
 
           <FaLinkedinIn className="text-black text-2xl"/>
