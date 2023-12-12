@@ -12,7 +12,9 @@ const Projects = () => {
       id="Project"
       className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white py-20 "
     >
-      <h3 className="text-3xl lg:text-6xl text-center font-bold text-white pb-10">PROJECTS</h3>
+       <h3 className="text-3xl border-b-2 max-w-screen-xl mx-auto  lg:text-6xl font-bold text-white pb-2 mb-20">
+        PROJECTS
+      </h3>
       {/* ::::::::::::::::::::::::::::::::::::::::::
       First Project
       ::::::::::::::::::::::::::::::::::::::::::::;;*/}

@@ -16,9 +16,9 @@ const Skill = () => {
   return (
     <div
       id="Skill"
-      className="h-fit py-20 space-y-4"
+      className="h-fit py-20 space-y-4 max-w-screen-xl mx-auto"
     >
-      <h3 className="text-3xl lg:text-6xl text-center font-bold text-white pb-10">
+      <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
         SKILLS
       </h3>
       <div className="flex gap-4 justify-center items-center ">
