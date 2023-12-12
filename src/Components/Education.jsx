@@ -1,6 +1,6 @@
 const Education = () => {
   return (
-    <div className="max-w-screen-xl mx-auto py-20 min-h-screen text-white ">
+    <div id="Eduction" className="max-w-screen-xl mx-auto py-20 min-h-screen text-white ">
       <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
         EDUCATIONS
       </h3>
@@ -29,7 +29,7 @@ const Education = () => {
         </div>
         <div>
           <h3 className="w-3/4 mb-10 mt-3">
-          I'm currently pursuing a BSc in Electrical and Electronic Engineering (EEE). It's been an exhilarating journey exploring the intricacies of electrical systems and electronics.The program has equipped me with a solid foundation in EEE principles, sparking a keen interest in innovation and problem-solving within the field. 
+          Im currently pursuing a BSc in Electrical and Electronic Engineering (EEE). Its been an exhilarating journey exploring the intricacies of electrical systems and electronics.The program has equipped me with a solid foundation in EEE principles, sparking a keen interest in innovation and problem-solving within the field. 
           </h3>
         </div>
         <div className="flex justify-between ">

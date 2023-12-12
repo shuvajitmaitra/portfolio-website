@@ -1,6 +1,6 @@
 import logo from "../assets/shuvajit-maitra-logo.png";
 const Navbar = () => {
-  const navLinks = ["Home",'Skill', "Project", "About"];
+  const navLinks = ["Home",'Skill', "Project", 'Eduction', "About"];
 
   const handleNavLink = (nav) => {
     const handleClickNavLink =()=>{
@@ -10,7 +10,7 @@ const Navbar = () => {
       <ul
         key={nav}
       >
-        <li onClick={handleClickNavLink} >{nav}</li>
+        <li className="cursor-pointer" onClick={handleClickNavLink} >{nav}</li>
       </ul>
     );
   };
