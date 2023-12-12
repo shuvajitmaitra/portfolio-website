@@ -18,10 +18,10 @@ const Skill = () => {
       id="Skill"
       className="h-fit py-20 space-y-4 max-w-screen-xl mx-auto"
     >
-      <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
+      <h3 className="border-b-2 text-5xl mx-5 xl:mx-auto md:text-6xl font-bold text-white pb-2 mb-20">
         SKILLS
       </h3>
-      <div className="flex gap-4 justify-center items-center ">
+      <div className="flex gap-4 justify-center items-center flex-wrap ">
         <span className=" p-3 rounded-md bg-zinc-200 shadow-lg hover:shadow-zinc-200 duration-1000 hover:scale-110 hover:bg-zinc-200">
           {" "}
           <FaHtml5 className="text-[#E5532D] text-6xl"></FaHtml5>
@@ -47,7 +47,7 @@ const Skill = () => {
           <SiDaisyui className="text-[#0870C2] text-6xl" />
         </span>
       </div>
-      <div className="flex gap-4 justify-center items-center ">
+      <div className="flex gap-4 justify-center items-center flex-wrap">
         <span className=" p-3 rounded-md bg-zinc-200 shadow-lg hover:shadow-zinc-200 duration-1000 hover:scale-110 hover:bg-zinc-200">
           <IoLogoJavascript className="text-[#F7DF1E] text-6xl"></IoLogoJavascript>
         </span>
