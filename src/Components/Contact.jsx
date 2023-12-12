@@ -43,13 +43,14 @@ export const Contact = () => {
           <input
             type="text"
             name="from_name"
-            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded"
+            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded  shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  "
             placeholder="Name"
             required
           />
           <input
             type="email"
-            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded"
+            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  "
+
             placeholder="Email"
             name="from_email"
             required
@@ -59,14 +60,16 @@ export const Contact = () => {
           name="message"
           placeholder="Write your message"
           required
-          className="w-full focus:outline-none mt-5 pb-20 pt-2 px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded"
+          className="w-full focus:outline-none mt-5 pb-20 pt-2 px-3 bg-transparent border-2 
+          shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  
+          focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded"
         />
        <div className="flex justify-center">
 
        <input
           type="submit"
           value="Send"
-          className="shadow-lg w-1/2 mx-auto hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white  py-3 mt-4"
+          className=" w-1/2 mx-auto shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white  py-3 mt-4"
         />
        </div>
       </form>
