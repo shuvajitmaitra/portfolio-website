@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <div id="Home" className="max-w-screen-xl mx-auto border-b py-7 border-zinc-600 text-white flex justify-between items-center">
+    <div id="Home" className="max-w-screen-xl mx-auto border-b py-7 border-zinc-600 text-white flex justify-between items-center flex-col md:flex-row px-5 xl:px-0 space-y-4">
       <div className="flex justify-center items-center gap-1">
         <img
           src={logo}
@@ -25,7 +25,7 @@ const Navbar = () => {
         />
         Shuvajit Maitra
       </div>
-      <div  className="flex gap-3 ">{navLinks.map((nav) => handleNavLink(nav))}</div>
+      <div  className="flex gap-3 flex-wrap justify-center">{navLinks.map((nav) => handleNavLink(nav))}</div>
     </div>
   );
 };
