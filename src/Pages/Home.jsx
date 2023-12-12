@@ -4,8 +4,8 @@
 // import Education from "../Components/Education";
 // import Footer from "../Components/Footer";
 // import Navbar from "../Components/Navbar";
-// import Projects from "../Components/Projects";
-import Skill from "../Components/Skill";
+import Projects from "../Components/Projects";
+// import Skill from "../Components/Skill";
 
 
 const Home = () => {
@@ -18,8 +18,8 @@ const Home = () => {
              </nav> */}
              <main>
                 {/* <Banner></Banner> */}
-                 <Skill></Skill>
-                 {/* <Projects></Projects> */}
+                 {/* <Skill></Skill> */}
+                 <Projects></Projects>
             {/* //    <div className="bg-AboutBackground">
             //    <About></About>
             //    </div>

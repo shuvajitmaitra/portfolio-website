@@ -12,15 +12,15 @@ const Projects = () => {
       id="Project"
       className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white pt-10 pb-20 "
     >
-       <h3 className="text-3xl border-b-2 max-w-screen-xl mx-auto  lg:text-6xl font-bold text-white pb-2 mb-20">
+       <h3 className="border-b-2 max-w-screen-xl  text-5xl mx-5 xl:mx-auto md:text-6xl lg:text-6xl font-bold text-white pb-2 mb-20">
         PROJECTS
       </h3>
       {/* ::::::::::::::::::::::::::::::::::::::::::
       First Project
       ::::::::::::::::::::::::::::::::::::::::::::;;*/}
-      <div className="flex h-fit justify-center items-center gap-10 mx-auto w-full">
-        <div className="h-[450px] w-[600px] flex-1 bg-cover bg-firstProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
-        <div className="flex-1 h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
+      <div className="xl:flex h-fit justify-center items-center gap-10 space-y-5 px-3 xl:mx-auto w-full">
+        <div className="h-[450px] xl:w-[600px] flex-1 bg-cover bg-firstProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
+        <div className="flex-1 xl:h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
           <h1 className="text-xl font-bold">
             PROJECT NAME:{" "}
             <span className="text-2xl text-[#11F3D3] font-bold">TrendLoom</span>
@@ -101,9 +101,9 @@ const Projects = () => {
       {/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
       Second Project
     ::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::::::::;::;*/}
-      <div className="flex h-fit justify-center items-center gap-10 mx-auto w-full">
-    <div className="h-[450px] w-[600px] flex-1 bg-cover bg-secondProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
-        <div className="flex-1 h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
+      <div className="xl:flex h-fit justify-center items-center gap-10 space-y-5 px-3 xl:mx-auto w-full">
+    <div className="h-[450px] xl:w-[600px] flex-1 bg-cover bg-secondProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
+        <div className="flex-1 xl:h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
           <h1 className="text-xl font-bold">
             PROJECT NAME:{" "}
             <span className="text-2xl text-[#11F3D3] font-bold">
@@ -192,9 +192,9 @@ const Projects = () => {
       {/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
       Third Project
       ::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::::::::;::;*/}
-      <div className="flex h-fit justify-center items-center gap-10 mx-auto w-full">
-        <div className="h-[450px] w-[600px] flex-1 bg-cover bg-thirdProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
-        <div className="flex-1 h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
+      <div className="xl:flex h-fit justify-center items-center gap-10 space-y-5 px-3 xl:mx-auto w-full">
+        <div className="h-[450px] xl:w-[600px] flex-1 bg-cover bg-thirdProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
+        <div className="flex-1 xl:h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
           <h1 className="text-xl font-bold">
             PROJECT NAME:{" "}
             <span className="text-2xl text-[#11F3D3] font-bold">
