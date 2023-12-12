@@ -10,7 +10,7 @@ const Projects = () => {
   return (
     <div
       id="Project"
-      className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white py-20 "
+      className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white pt-10 pb-20 "
     >
        <h3 className="text-3xl border-b-2 max-w-screen-xl mx-auto  lg:text-6xl font-bold text-white pb-2 mb-20">
         PROJECTS

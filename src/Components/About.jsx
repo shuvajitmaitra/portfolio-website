@@ -7,12 +7,7 @@ const About = () => {
           About Me
         </h3>
         <p className="p-10 rounded-2xl bg-slate-800">
-          Hello, Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Maiores eligendi nulla nisi temporibus perspiciatis sit est adipisci
-          voluptatibus velit. Unde veritatis dolorem, quasi debitis suscipit a
-          quae! Quo dignissimos porro corrupti deserunt. Eaque, quas nostrum,
-          praesentium reprehenderit minima, eveniet excepturi quidem unde
-          suscipit aliquid corporis esse repellendus? Beatae, fuga quaerat!
+        Hello there! 👋 I’m Shuvajit Maitra, a passionate Junior MERN Developer with a deep passion for creating intuitive and dynamic web applications. My journey in the world of web development has been an exciting exploration of the MERN (MongoDB, Express.js, React, Node.js) stack, where I’ve honed my skills in building responsive and user-friendly interfaces.
         </p>
       </div>
       <div className="w-1/3 ">

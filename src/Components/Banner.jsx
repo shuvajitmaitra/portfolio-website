@@ -17,7 +17,7 @@ const Banner = () => {
         </h1>
       </div>
       <div className="flex w-3/4 mx-auto text-white ">
-        <div className="h-[380px] flex flex-col justify-center items-center gap-3 w-[600px] border rounded-tl-[100px] rounded-br-[100px] text-center ">
+        <div className="h-[380px] flex flex-col justify-center items-center gap-3 w-[600px]  rounded-tl-[100px] rounded-br-[100px] text-center border-2 hover:border-[#11F3D3]">
           
          <div>
           <img
@@ -53,7 +53,7 @@ Proven dedication, strong teamwork, and a drive to excel. Eager to contribute sk
 lead developer in a dynamic work setting.
           </p>
         </div>
-        <div className="h-[300px] w-[300px] border rounded-[50px] duration-1000 hover:scale-110 flex flex-col justify-center items-center gap-5">
+        <div className="h-[300px] w-[300px] border-2 hover:border-[#11F3D3] rounded-[50px] duration-1000 hover:scale-110 flex flex-col justify-center items-center gap-5">
           <Link to={'https://www.linkedin.com/in/shuvajit-maitra/'} target="_blank" className="bg-[#11F3D3] p-1 shadow-lg rounded-full hover:shadow-[#11F3D3] duration-1000 hover:scale-110 ">
 
           <FaLinkedinIn className="text-black text-2xl"/>
