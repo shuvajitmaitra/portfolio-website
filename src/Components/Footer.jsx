@@ -27,7 +27,7 @@ const Footer = () => {
         />
         Shuvajit Maitra
       </div>
-      <div  className="flex gap-3 justify-center items-center ">{navLinks.map((nav) => handleNavLink(nav))}</div>
+      <div  className="flex gap-3 justify-center items-center flex-wrap ">{navLinks.map((nav) => handleNavLink(nav))}</div>
       <h3 className="text-center">All @copy reserve by Shuvajit Maitra</h3>
         </div>
     )}

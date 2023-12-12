@@ -30,14 +30,14 @@ export const Contact = () => {
       );
   };
   return (
-    <div id="Contact" className="max-w-screen-xl mx-auto pb-20">
+    <div id="Contact" className="max-w-screen-xl mx-auto pb-20 px-3 lg:px-20">
       <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
         CONTACT ME
       </h3>
       <form
         ref={form}
         onSubmit={sendEmail}
-        className="w-full lg:w-1/2 mx-auto bg-slate-700 p-0 lg:p-10 rounded-lg"
+        className="w-full lg:w-1/2 mx-auto bg-slate-700 p-5 lg:p-10 rounded-lg"
       >
         <div className="flex justify-between w-full gap-5 lg:gap-10">
           <input

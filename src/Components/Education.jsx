@@ -4,7 +4,7 @@ const Education = () => {
       <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
         EDUCATIONS
       </h3>
-      <div className=" w-3/4 mx-auto bg-slate-700 rounded-lg p-7">
+      <div className="xl:w-3/4 mx-auto bg-slate-700 rounded-lg p-5 lg:p-7">
         <div className="flex justify-between ">
           <h3 className="text-2xl font-medium text-[#08DAFA]">
             BSc in ELECTRICAL AND ELECTRONIC ENGINEERING <br />
