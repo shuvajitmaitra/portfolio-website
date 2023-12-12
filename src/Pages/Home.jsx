@@ -2,6 +2,7 @@ import About from "../Components/About";
 import Banner from "../Components/Banner";
 import Navbar from "../Components/Navbar";
 import Projects from "../Components/Projects";
+import Skill from "../Components/Skill";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
              </nav>
              <main>
                 <Banner></Banner>
+                <Skill></Skill>
                 <Projects></Projects>
                <div className="bg-AboutBackground">
                <About></About>

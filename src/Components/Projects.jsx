@@ -10,8 +10,9 @@ const Projects = () => {
   return (
     <div
       id="Project"
-      className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white"
+      className="min-h-screen max-w-screen-xl mx-auto space-y-10 text-white py-20 "
     >
+      <h3 className="text-3xl lg:text-6xl text-center font-bold text-white pb-10">PROJECTS</h3>
       {/* ::::::::::::::::::::::::::::::::::::::::::
       First Project
       ::::::::::::::::::::::::::::::::::::::::::::;;*/}
@@ -72,7 +73,7 @@ const Projects = () => {
               target="_blank"
               to="https://tree-treasures.web.app/"
             >
-              <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
+              <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110 hover:bg-[#2ab0c5] rounded-full bg-[#08DAFA]  text-white px-3 py-2 my-4">
                 Live Site
               </button>
             </Link>
