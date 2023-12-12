@@ -102,7 +102,7 @@ const Projects = () => {
       Second Project
     ::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::::::::;::;*/}
       <div className="flex h-fit justify-center items-center gap-10 mx-auto w-full">
-    <div className="h-[450px] w-[600px] flex-1 bg-cover bg-firstProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
+    <div className="h-[450px] w-[600px] flex-1 bg-cover bg-secondProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
         <div className="flex-1 h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
           <h1 className="text-xl font-bold">
             PROJECT NAME:{" "}
@@ -164,7 +164,7 @@ const Projects = () => {
           <div className="flex justify-center items-center gap-3 ">
             <Link
               target="_blank"
-              to="https://tree-treasures.web.app/"
+              to="https://novel-nexus.surge.sh/"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Live Site
@@ -172,7 +172,7 @@ const Projects = () => {
             </Link>
             <Link
               target="_blank"
-              to="https://github.com/shuvajitmaitra/Inventory-Management-Client"
+              to="https://github.com/shuvajitmaitra/Novel-Nexus-Client"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Client Code
@@ -180,7 +180,7 @@ const Projects = () => {
             </Link>
             <Link
               target="_blank"
-              to="https://github.com/shuvajitmaitra/Inventory-Management-Server"
+              to="https://github.com/shuvajitmaitra/Media-Hunter-Server"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Server Code
@@ -193,7 +193,7 @@ const Projects = () => {
       Third Project
       ::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::::::::;::;*/}
       <div className="flex h-fit justify-center items-center gap-10 mx-auto w-full">
-        <div className="h-[450px] w-[600px] flex-1 bg-cover bg-firstProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
+        <div className="h-[450px] w-[600px] flex-1 bg-cover bg-thirdProject bg-top duration-[3s] hover:bg-bottom rounded-lg shadow-xl shadow-[#7CB518]"></div>
         <div className="flex-1 h-[450px] bg-slate-700 rounded-xl shadow-xl shadow-[#08DAFA] p-4 space-y-2">
           <h1 className="text-xl font-bold">
             PROJECT NAME:{" "}
@@ -252,7 +252,7 @@ const Projects = () => {
           <div className="flex justify-center items-center gap-3 ">
             <Link
               target="_blank"
-              to="https://tree-treasures.web.app/"
+              to="https://media-hunter-io.web.app/"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Live Site
@@ -260,7 +260,7 @@ const Projects = () => {
             </Link>
             <Link
               target="_blank"
-              to="https://github.com/shuvajitmaitra/Inventory-Management-Client"
+              to="https://github.com/shuvajitmaitra/Media-Hunter-Client"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Client Code
@@ -268,7 +268,7 @@ const Projects = () => {
             </Link>
             <Link
               target="_blank"
-              to="https://github.com/shuvajitmaitra/Inventory-Management-Server"
+              to="https://github.com/shuvajitmaitra/Media-Hunter-Server"
             >
               <button className="shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white px-3 py-2 my-4">
                 Server Code
