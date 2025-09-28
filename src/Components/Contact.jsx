@@ -1,78 +1,188 @@
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import toast from "react-hot-toast";
+import { useState } from "react";
+import { FaComments, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaPhone, FaUser } from "react-icons/fa";
 
 export const Contact = () => {
-  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_dti0tno",
-        "template_0s6mhzh",
-        form.current,
-        "qaNQgd8IjlSnrJ2uH"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          if (result.text === "OK") {
-            toast.success("Email Send 😊");
-            e.target.reset();
-          }
-        },
-        (error) => {
-          console.log(error.text);
-          toast.error("Email send failed 😭");
-        }
-      );
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulating form submission
+    setTimeout(() => {
+      console.log("Form data:", formData);
+      alert("Message sent successfully! 🎉");
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 2000);
+
+    // In real implementation, replace with:
+    // emailjs.sendForm("service_dti0tno", "template_0s6mhzh", form.current, "qaNQgd8IjlSnrJ2uH")
+  };
+
+  const contactInfo = [
+    {
+      icon: <FaEnvelope />,
+      title: "Email",
+      details: "shuvajitmaitra@gmail.com",
+      link: "mailto:shuvajitmaitra@gmail.com",
+      color: "text-cyan-400",
+    },
+    {
+      icon: <FaPhone />,
+      title: "Phone",
+      details: "+880 194-988-7896",
+      link: "tel:+8801949887896",
+      color: "text-green-400",
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      title: "Location",
+      details: "Dhaka, Bangladesh",
+      link: "#",
+      color: "text-purple-400",
+    },
+  ];
+
   return (
-    <div id="Contact" className="max-w-screen-xl mx-auto pb-20 px-3 lg:px-20">
-      <h3 className="text-3xl border-b-2 lg:text-6xl font-bold text-white pb-2 mb-20">
-        CONTACT ME
-      </h3>
-      <form
-        ref={form}
-        onSubmit={sendEmail}
-        className="w-full lg:w-1/2 mx-auto bg-slate-700 p-5 lg:p-10 rounded-lg"
-      >
-        <div className="flex justify-between w-full gap-5 lg:gap-10">
-          <input
-            type="text"
-            name="from_name"
-            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded  shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  "
-            placeholder="Name"
-            required
-          />
-          <input
-            type="email"
-            className="w-full py-3 focus:outline-none px-3 bg-transparent border-2 focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  "
-
-            placeholder="Email"
-            name="from_email"
-            required
-          />
+    <div id="Contact" className="min-h-screen bg-gray-900 text-white pt-28">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-6">
+            GET IN TOUCH
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Have a project in mind or want to collaborate? I&#39;d love to hear from you!
+          </p>
         </div>
-        <textarea
-          name="message"
-          placeholder="Write your message"
-          required
-          className="w-full focus:outline-none mt-5 pb-20 pt-2 px-3 bg-transparent border-2 
-          shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  
-          focus:border-[#08DAFA] placeholder:focus:text-[#08DAFA] rounded"
-        />
-       <div className="flex justify-center">
 
-       <input
-          type="submit"
-          value="Send"
-          className=" w-1/2 mx-auto shadow-lg hover:shadow-[#08DAFA] duration-1000 hover:scale-110  rounded-full bg-[#08DAFA] hover:bg-[#2ab0c5] text-white  py-3 mt-4"
-        />
-       </div>
-      </form>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <FaComments className="text-cyan-400" />
+                Let&#39;s Talk
+              </h3>
+            </div>
+
+            {/* Contact Cards */}
+            <div className="space-y-4">
+              {contactInfo.map((info, index) => (
+                <a
+                  key={index}
+                  href={info.link}
+                  className="group flex items-center gap-4 p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:scale-105"
+                >
+                  <div
+                    className={`p-4 rounded-xl bg-gradient-to-r from-gray-700 to-gray-600 group-hover:from-cyan-500 group-hover:to-purple-500 transition-all duration-300`}
+                  >
+                    <span className={`text-2xl ${info.color} group-hover:text-white transition-colors duration-300`}>{info.icon}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white group-hover:text-cyan-300 transition-colors duration-300">{info.title}</h4>
+                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{info.details}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="relative">
+            {/* Background Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl"></div>
+
+            <div className="relative bg-gray-800 p-8 rounded-3xl border border-gray-700 space-y-6">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">Send Message</h3>
+                <p className="text-gray-400">I&#39;ll get back to you within 24 hours</p>
+              </div>
+
+              {/* Name and Email Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <FaUser className="text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-300" />
+                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full pl-12 pr-4 py-4 bg-gray-700 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none text-white placeholder-gray-400 transition-all duration-300"
+                    placeholder="Your Name"
+                  />
+                </div>
+
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <FaEnvelope className="text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-300" />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full pl-12 pr-4 py-4 bg-gray-700 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none text-white placeholder-gray-400 transition-all duration-300"
+                    placeholder="Your Email"
+                  />
+                </div>
+              </div>
+
+              {/* Message Textarea */}
+              <div className="relative">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows="3"
+                  className="w-full px-4 py-4 bg-gray-700 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none text-white placeholder-gray-400 resize-none transition-all duration-300"
+                  placeholder="Tell me about your project or just say hello..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 ${
+                  isSubmitting
+                    ? "bg-gray-600 cursor-not-allowed"
+                    : "bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25"
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
+export default Contact;

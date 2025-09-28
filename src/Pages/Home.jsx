@@ -9,18 +9,18 @@ import Skill from "../Components/Skill";
 
 const Home = () => {
   return (
-    <div>
-      <nav >
-             <Navbar></Navbar>
-             </nav>
-      <main>
-        <Banner></Banner> 
+    <div id="Home">
+      <nav className="sticky w-full top-0 bg-gray-900 z-50 ">
+        <Navbar></Navbar>
+      </nav>
+      <main className="">
+        <Banner></Banner>
         <Skill></Skill>
         <Projects></Projects>
-        <div className="bg-AboutBackground">
-       <About></About> 
-        </div>
         <Education />
+        <div className="bg-AboutBackground">
+          <About></About>
+        </div>
         <Contact />
         <div className="bg-slate-700">
           <Footer />
