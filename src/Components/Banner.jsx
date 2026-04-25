@@ -1,85 +1,145 @@
-import profileImage from "../assets/shuvajit-maitra.gif";
-import { FaFacebookF, FaGithub, FaLinkedinIn, FaRegEnvelope } from "react-icons/fa";
-import { IoLocationOutline } from "react-icons/io5";
-import { FaMapLocation } from "react-icons/fa6";
-import { FiDownload } from "react-icons/fi";
+import profileImage from "../assets/shuvajit_maitra_full_formal.webp";
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FiArrowDownRight, FiDownload } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import resume from "../assets/React_Native_Developer_Shuvajit_Maitra.pdf";
+export const resume = "https://github.com/shuvajitmaitra/portfolio-website/releases/download/resume/Shuvajit_Maitra_Resume.pdf";
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/shuvajit-maitra/",
+    icon: <FaLinkedinIn className="text-lg" />,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/shuvajitmaitra",
+    icon: <FaGithub className="text-lg" />,
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/8801949887896",
+    icon: <FaWhatsapp className="text-lg" />,
+  },
+];
 
 const Banner = () => {
+  const handleSeeWorks = (event) => {
+    event.preventDefault();
+    document.getElementById("Project")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="py-28">
-      <div className="flex flex-col md:flex-row space-y-5 md:gap-10 xl:w-3/4 mx-5 xl:mx-auto text-white ">
-        <div className="h-[380px] flex flex-col justify-center items-center gap-3 lg:w-[600px]  rounded-tl-[100px] rounded-br-[100px] text-center border-2 hover:border-[#11F3D3]">
-          <div>
-            <img
-              src={profileImage}
-              alt="profile-Image"
-              className="h-20 w-20 inline-block mx-auto border-2 duration-1000 hover:scale-110  border-[#11F3D3] rounded-full"
-            />
-            <h2>Shuvajit</h2>
-            <p>Mobile App Developer</p>
+    <section className="relative overflow-hidden bg-gray-900 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:pt-6 lg:pb-16">
+      <div className="absolute inset-0">
+        <div className="absolute left-[-8%] top-8 h-72 w-72 rounded-full bg-cyan-400/8 blur-3xl"></div>
+        <div className="absolute right-[-8%] top-10 h-80 w-80 rounded-full bg-white/5 blur-3xl"></div>
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-end">
+        <div className="order-2 lg:order-1">
+          <div className="flex items-start gap-5">
+            <div className="hidden lg:flex min-h-[420px] flex-col items-center justify-between text-xs uppercase tracking-[0.28em] text-gray-500">
+              <span className="[writing-mode:vertical-rl] rotate-180">React Native • Flutter</span>
+              <span className="[writing-mode:vertical-rl] rotate-180">2026</span>
+            </div>
+
+            <div className="w-full">
+              <div className="mb-5 flex flex-wrap items-center gap-3 text-sm text-gray-400">
+                <span className="rounded-full border border-white/10 px-4 py-2">Shuvajit Maitra</span>
+                <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-cyan-300">Dhaka, Bangladesh</span>
+              </div>
+
+              <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl xl:text-[7.5rem]">
+                Mobile
+                <br />
+                Application
+                <br />
+                Developer
+              </h1>
+
+              <div className="mt-6 max-w-2xl space-y-4">
+                <p className="text-base leading-8 text-gray-300 sm:text-lg">
+                  React Native and Flutter developer crafting clean, production-ready mobile experiences for iOS and Android.
+                </p>
+                <p className="text-sm uppercase tracking-[0.2em] text-gray-500">
+                  Cross-platform apps • Store delivery • Clean product execution
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href={resume}
+                  download={resume}
+                  className="inline-flex items-center gap-3 border-b border-white pb-1 text-sm font-medium text-white transition-opacity duration-300 hover:opacity-70"
+                >
+                  Resume
+                  <FiDownload />
+                </a>
+
+                {socialLinks.map((social) => (
+                  <Link
+                    key={social.name}
+                    to={social.href}
+                    target="_blank"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-gray-200 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:text-cyan-300"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
-          <ul>
-            <li className="flex items-center text-xs pl-5 gap-2 duration-1000 hover:scale-110">
-              <FaRegEnvelope /> shuvajitmaitra@gmail.com
-            </li>
-            <li className="flex items-center text-xs pl-5 gap-2 duration-1000 hover:scale-110">
-              <IoLocationOutline /> Dhaka, Bangladesh
-            </li>
-            <li className="flex items-center text-xs pl-5 gap-2 duration-1000 hover:scale-110">
-              <FaMapLocation /> Onsite/Remote/Hybrid{" "}
-            </li>
-          </ul>
-          <ul className="flex justify-center items-center gap-2">
-            <li className="text-xs px-2 bg-[#295852] rounded-full duration-1000 hover:scale-110">JS</li>
-            <li className="text-xs px-1 bg-[#295852] rounded-full duration-1000 hover:scale-110">React Native</li>
-            <li className="text-xs px-1 bg-[#295852] rounded-full duration-1000 hover:scale-110">Android</li>
-            <li className="text-xs px-1 bg-[#295852] rounded-full duration-1000 hover:scale-110">iOS</li>
-          </ul>
-          <a
-            href={resume}
-            download={resume}
-            className="flex items-center gap-2 justify-center p-2 bg-white rounded-full w-3/4 mx-auto text-zinc-600 duration-1000 hover:scale-110"
-          >
-            Download CV <FiDownload />
-          </a>
         </div>
-        <div className="space-y-3 ">
-          <h2 className="text-3xl md:text-5xl font-bold">
-            <span></span>Hey <br /> I’m <span className="text-[#11F3D3]">Shuvajit</span>, <br /> Mobile App Developer
-          </h2>
-          <p className="max-w-7xl text-xs md:text-base">
-            React Native developer with 2+ years of experience building and shipping iOS and Android apps. I work with React Native CLI,
-            Expo, TypeScript, Redux, REST APIs, OTA updates, and store deployment workflows to deliver reliable mobile products with clean,
-            maintainable code.
-          </p>
-        </div>
-        <div className="h-20 md:h-[300px] md:w-[300px] border-2 hover:border-[#11F3D3] rounded-[50px] duration-1000 hover:scale-110 flex md:flex-col justify-center items-center gap-5">
-          <Link
-            to={"https://www.linkedin.com/in/shuvajit-maitra/"}
-            target="_blank"
-            className="bg-[#11F3D3] p-1 shadow-lg rounded-full hover:shadow-[#11F3D3] duration-1000 hover:scale-110 "
-          >
-            <FaLinkedinIn className="text-black text-2xl" />
-          </Link>
-          <Link
-            to={"https://www.facebook.com/iamshuvajit/"}
-            target="_blank"
-            className="bg-[#11F3D3] p-1 shadow-lg rounded-full hover:shadow-[#11F3D3] duration-1000 hover:scale-110 "
-          >
-            <FaFacebookF className="text-black text-2xl" />
-          </Link>
-          <Link
-            to={"https://github.com/shuvajitmaitra"}
-            target="_blank"
-            className="bg-[#11F3D3] p-1 shadow-lg rounded-full hover:shadow-[#11F3D3] duration-1000 hover:scale-110 "
-          >
-            <FaGithub className="text-black text-2xl" />
-          </Link>
+
+        <div className="order-1 lg:order-2">
+          <div className="relative mx-auto max-w-[620px]">
+            <div className="absolute inset-0 scale-[0.92] rounded-[36px] bg-gradient-to-br from-white/8 via-cyan-400/10 to-transparent blur-2xl"></div>
+            <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-b from-slate-800/70 to-slate-900/80">
+              <div className="absolute left-6 top-6 z-10 rounded-full border border-white/20 bg-black/45 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-white backdrop-blur-md shadow-lg shadow-black/20">
+                Available for work
+              </div>
+              <div className="absolute bottom-6 left-6 z-10 flex items-center gap-3 rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-white backdrop-blur-sm">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(74,222,128,0.9)]"></span>
+                Remote / Hybrid / Onsite
+              </div>
+              <img
+                src={profileImage}
+                alt="Shuvajit Maitra"
+                className="h-[420px] w-full object-cover object-center grayscale-[8%] sm:h-[520px] lg:h-[620px] banner-image"
+              />
+            </div>
+
+            <div className="mt-4 flex justify-end text-sm text-gray-500">
+              <a
+                href="#Project"
+                onClick={handleSeeWorks}
+                className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-cyan-300"
+              >
+                See works
+                <FiArrowDownRight />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+      <style>{`
+        .banner-image {
+          animation: bannerFloat 7s ease-in-out infinite;
+          transform-origin: center center;
+        }
+
+        @keyframes bannerFloat {
+          0%, 100% {
+            transform: scale(1) translateY(0px);
+          }
+          50% {
+            transform: scale(1.02) translateY(-8px);
+          }
+        }
+      `}</style>
+    </section>
   );
 };
+
 export default Banner;

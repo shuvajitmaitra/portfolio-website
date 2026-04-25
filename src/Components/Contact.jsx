@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import { FaComments, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaPhone, FaUser } from "react-icons/fa";
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,20 +19,32 @@ export const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulating form submission
-    setTimeout(() => {
-      console.log("Form data:", formData);
-      alert("Message sent successfully! 🎉");
+    try {
+      await emailjs.sendForm("service_9k5aeyu", "template_5swijsa", formRef.current, "KR8AblqBG2gnBnAL3");
+      toast.success("Message sent successfully. I’ll get back to you soon.", {
+        duration: 4000,
+        iconTheme: {
+          primary: "#22c55e",
+          secondary: "#ffffff",
+        },
+      });
       setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Email send failed:", error);
+      toast.error(error?.text || "Message could not be sent. Please try again.", {
+        duration: 5000,
+        iconTheme: {
+          primary: "#ef4444",
+          secondary: "#ffffff",
+        },
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
-
-    // In real implementation, replace with:
-    // emailjs.sendForm("service_dti0tno", "template_0s6mhzh", form.current, "qaNQgd8IjlSnrJ2uH")
+    }
   };
 
   const contactInfo = [
@@ -38,13 +53,15 @@ export const Contact = () => {
       title: "Email",
       details: "shuvajitmaitra@gmail.com",
       link: "mailto:shuvajitmaitra@gmail.com",
+      newTab: false,
       color: "text-cyan-400",
     },
     {
       icon: <FaPhone />,
       title: "Phone",
       details: "+880 194-988-7896",
-      link: "tel:+8801949887896",
+      link: "https://wa.me/8801949887896",
+      newTab: true,
       color: "text-green-400",
     },
     {
@@ -52,6 +69,7 @@ export const Contact = () => {
       title: "Location",
       details: "Dhaka, Bangladesh",
       link: "#",
+      newTab: false,
       color: "text-purple-400",
     },
   ];
@@ -85,6 +103,8 @@ export const Contact = () => {
                 <a
                   key={index}
                   href={info.link}
+                  target={info.newTab ? "_blank" : undefined}
+                  rel={info.newTab ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-4 p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:scale-105"
                 >
                   <div
@@ -106,7 +126,7 @@ export const Contact = () => {
             {/* Background Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl"></div>
 
-            <div className="relative bg-gray-800 p-8 rounded-3xl border border-gray-700 space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="relative bg-gray-800 p-8 rounded-3xl border border-gray-700 space-y-6">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Send Message</h3>
                 <p className="text-gray-400">I&#39;ll get back to you within 24 hours</p>
@@ -157,7 +177,7 @@ export const Contact = () => {
 
               {/* Submit Button */}
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isSubmitting}
                 className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 ${
                   isSubmitting
@@ -177,7 +197,7 @@ export const Contact = () => {
                   </>
                 )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

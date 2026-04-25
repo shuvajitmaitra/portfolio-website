@@ -16,12 +16,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto border-b py-7 border-zinc-600 text-white flex justify-between items-center flex-col md:flex-row px-5 xl:px-0 space-y-4">
-      <div className="flex justify-center items-center gap-1">
-        <img src={logo} alt="logo" className="w-10 h-10" />
-        Shuvajit Maitra
+    <div className="max-w-screen-xl mx-auto border-b border-white/10 py-5 text-white flex justify-between items-center flex-col md:flex-row px-5 xl:px-0 gap-4">
+      <div className="flex justify-center items-center gap-2 text-sm uppercase tracking-[0.2em] text-gray-200">
+        <img src={logo} alt="logo" className="w-9 h-9" />
+        <span>Shuvajit Maitra</span>
       </div>
-      <div className="flex gap-3 flex-wrap justify-center">{navLinks.map((nav) => handleNavLink(nav))}</div>
+      <div className="flex gap-5 flex-wrap justify-center text-sm text-gray-400">{navLinks.map((nav) => handleNavLink(nav))}</div>
     </div>
   );
 };
