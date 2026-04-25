@@ -1,7 +1,7 @@
 import logo from "../assets/shuvajit-maitra-logo.png";
 
 const Footer = () => {
-  const navLinks = ["Home", "Skill", "Project", "Education", "About", "Contact"];
+  const navLinks = ["Home", "Skills", "Project", "Education", "About", "Contact"];
 
   const handleNavLink = (nav) => {
     const handleClickNavLink = () => {

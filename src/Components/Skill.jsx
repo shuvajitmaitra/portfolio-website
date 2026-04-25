@@ -18,6 +18,7 @@ import {
   SiExpo,
   SiExpress,
   SiFirebase,
+  SiFlutter,
   SiGit,
   SiJavascript,
   SiMongodb,
@@ -31,12 +32,30 @@ import { TbBrandReactNative } from "react-icons/tb";
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
+  const featuredFrameworks = [
+    {
+      name: "React Native",
+      subtitle: "Production cross-platform mobile apps",
+      icon: <TbBrandReactNative />,
+      color: "from-cyan-500 to-blue-500",
+      iconColor: "text-cyan-300",
+    },
+    {
+      name: "Flutter",
+      subtitle: "Also building modern apps with Flutter",
+      icon: <SiFlutter />,
+      color: "from-sky-500 to-indigo-500",
+      iconColor: "text-sky-300",
+    },
+  ];
+
   const skillsData = {
     "Mobile Development": {
       icon: <FaMobile />,
       color: "from-blue-500 to-cyan-400",
       skills: [
         { name: "React Native CLI", icon: <TbBrandReactNative />, color: "text-cyan-400" },
+        { name: "Flutter", icon: <SiFlutter />, color: "text-sky-400" },
         { name: "Expo", icon: <SiExpo />, color: "text-white" },
         { name: "Native Modules", icon: <FaCode />, color: "text-green-400" },
       ],
@@ -110,6 +129,28 @@ const Skills = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Crafting exceptional mobile experiences with cutting-edge technologies
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          {featuredFrameworks.map((framework) => (
+            <div
+              key={framework.name}
+              className={`relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br ${framework.color} p-[1px]`}
+            >
+              <div className="h-full rounded-[27px] bg-slate-900/95 p-6 sm:p-7">
+                <div className="flex items-start gap-4">
+                  <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-4xl ${framework.iconColor}`}>
+                    {framework.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Mobile Framework</p>
+                    <h3 className="mt-2 text-2xl font-bold text-white">{framework.name}</h3>
+                    <p className="mt-2 text-sm sm:text-base leading-7 text-gray-300">{framework.subtitle}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Floating Skills Cloud */}

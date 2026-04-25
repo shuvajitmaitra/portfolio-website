@@ -7,10 +7,10 @@ const About = () => {
           About Me
         </h3>
         <p className="p-10 rounded-2xl bg-slate-800 leading-6">
-          Hello there! 👋 I’m Shuvajit Maitra, React Native developer with over 1.5 years of experience building high-performance mobile
-          apps for iOS and Android. Proficient in JavaScript, React, React Native CLI, and Expo. Skilled in state management, RESTful APIs,
-          and performance optimization. Experienced in publishing apps to the Google Play Store and Apple App Store. I focus on writing
-          clean, maintainable code and enjoy collaborating with teams to deliver high-quality apps.
+          I’m Shuvajit Maitra, a mobile application developer with over 2 years of experience building high-performance React Native apps
+          for iOS and Android. I currently work at SDB IT, where I turn product ideas and wireframes into polished mobile experiences,
+          integrate APIs and third-party services, manage OTA updates, and support app releases for both the Google Play Store and Apple
+          App Store. I care about clean architecture, reliable delivery, and collaborative teamwork that keeps products moving forward.
         </p>
       </div>
       <div className="xl:w-1/3 ">

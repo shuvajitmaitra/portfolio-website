@@ -2,6 +2,7 @@ import About from "../Components/About";
 import Banner from "../Components/Banner";
 import { Contact } from "../Components/Contact";
 import Education from "../Components/Education";
+import Experience from "../Components/Experience";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Projects from "../Components/Projects";
@@ -16,6 +17,7 @@ const Home = () => {
       <main className="">
         <Banner></Banner>
         <Skill></Skill>
+        <Experience />
         <Projects></Projects>
         <Education />
         <div className="bg-AboutBackground">

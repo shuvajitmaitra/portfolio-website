@@ -50,9 +50,9 @@ const Banner = () => {
             <span></span>Hey <br /> I’m <span className="text-[#11F3D3]">Shuvajit</span>, <br /> Mobile App Developer
           </h2>
           <p className="max-w-7xl text-xs md:text-base">
-            React Native developer with 1.5+ years building iOS/Android apps. Skilled in JavaScript, React, React Native CLI, Expo, state
-            management, RESTful APIs, and performance optimization. I publish apps to Google Play Store and Apple App Store, focusing on
-            clean code and team collaboration.
+            React Native developer with 2+ years of experience building and shipping iOS and Android apps. I work with React Native CLI,
+            Expo, TypeScript, Redux, REST APIs, OTA updates, and store deployment workflows to deliver reliable mobile products with clean,
+            maintainable code.
           </p>
         </div>
         <div className="h-20 md:h-[300px] md:w-[300px] border-2 hover:border-[#11F3D3] rounded-[50px] duration-1000 hover:scale-110 flex md:flex-col justify-center items-center gap-5">

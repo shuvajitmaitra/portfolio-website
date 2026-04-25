@@ -1,6 +1,6 @@
 import logo from "../assets/shuvajit-maitra-logo.png";
 const Navbar = () => {
-  const navLinks = ["Home", "Skill", "Project", "Education", "About", "Contact"];
+  const navLinks = ["Home", "Skills", "Experience", "Project", "Education", "About", "Contact"];
 
   const handleNavLink = (nav) => {
     const handleClickNavLink = () => {
