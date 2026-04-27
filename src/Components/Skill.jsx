@@ -7,11 +7,13 @@ import {
   FaDatabase,
   FaGithub,
   FaGooglePlay,
+  FaGlobe,
   FaLightbulb,
   FaMobile,
   FaNodeJs,
   FaReact,
   FaRocket,
+  FaServer,
 } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import {
@@ -46,6 +48,61 @@ const Skills = () => {
       icon: <SiFlutter />,
       color: "from-sky-500 to-indigo-500",
       iconColor: "text-sky-300",
+    },
+  ];
+
+  const capabilityCards = [
+    {
+      title: "React Native",
+      description: "Building cross-platform mobile applications for iOS and Android with production-ready architecture and release workflows.",
+      icon: <TbBrandReactNative />,
+      iconColor: "text-cyan-300",
+      panelColor: "border-cyan-400/20 bg-cyan-500/10",
+      chips: ["React Native CLI", "Expo", "TypeScript", "Redux", "OTA Updates"],
+      points: [
+        "Single codebase for iOS and Android",
+        "Native-feeling UI and performance",
+        "App store delivery workflows",
+      ],
+    },
+    {
+      title: "Flutter",
+      description: "Also working with Flutter for modern cross-platform app experiences with clean UI and scalable mobile foundations.",
+      icon: <SiFlutter />,
+      iconColor: "text-sky-300",
+      panelColor: "border-sky-400/20 bg-sky-500/10",
+      chips: ["Flutter", "Cross-platform UI", "Animations", "Mobile-first"],
+      points: [
+        "Fast UI iteration",
+        "Consistent cross-platform design",
+        "Modern mobile app workflows",
+      ],
+    },
+    {
+      title: "Frontend & Web Development",
+      description: "Creating responsive web applications and polished interfaces with React and modern frontend tooling.",
+      icon: <FaGlobe />,
+      iconColor: "text-indigo-300",
+      panelColor: "border-indigo-400/20 bg-indigo-500/10",
+      chips: ["React", "JavaScript", "Tailwind CSS", "Responsive UI"],
+      points: [
+        "Responsive layouts",
+        "Clean component-based UI",
+        "Fast, modern web experiences",
+      ],
+    },
+    {
+      title: "Backend Development",
+      description: "Supporting applications with APIs, authentication, databases, and integration-focused backend workflows.",
+      icon: <FaServer />,
+      iconColor: "text-emerald-300",
+      panelColor: "border-emerald-400/20 bg-emerald-500/10",
+      chips: ["Node.js", "Express.js", "MongoDB", "Firebase"],
+      points: [
+        "REST API integration",
+        "Authentication and data handling",
+        "Scalable service-side foundations",
+      ],
     },
   ];
 
@@ -151,6 +208,53 @@ const Skills = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white">What I Build</h3>
+            <p className="mt-4 max-w-3xl mx-auto text-base sm:text-lg leading-7 text-gray-400">
+              Core development areas across mobile, frontend, and backend product delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            {capabilityCards.map((card) => (
+              <div key={card.title} className="rounded-[30px] border border-white/10 bg-slate-900/80 p-6 sm:p-7">
+                <div className="flex items-start gap-4">
+                  <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-3xl ${card.iconColor}`}>
+                    {card.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-white">{card.title}</h4>
+                    <p className="mt-3 text-base leading-8 text-gray-300">{card.description}</p>
+                  </div>
+                </div>
+
+                <div className={`mt-6 rounded-[24px] border ${card.panelColor} p-5`}>
+                  <div className="space-y-3">
+                    {card.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3 text-sm sm:text-base text-gray-200">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-current opacity-80"></span>
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {card.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-2xl border border-white/10 bg-slate-800 px-4 py-2 text-sm font-medium text-cyan-200"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Floating Skills Cloud */}
