@@ -1,33 +1,25 @@
 import Footer from "../components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
-import AboutSection from "../components/sections/AboutSection";
 import ContactSection from "../components/sections/ContactSection";
-import EducationSection from "../components/sections/EducationSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
 import HeroSection from "../components/sections/HeroSection";
-import ProjectsSection from "../components/sections/ProjectsSection";
 import SkillsSection from "../components/sections/SkillsSection";
 
 const HomePage = () => {
   return (
-    <div id="Home">
-      <nav className="sticky w-full top-0 bg-gray-900 z-50 ">
-        <Navbar />
-      </nav>
-      <main className="">
+    <div>
+      <a
+        href="#main"
+        className="sr-only z-[60] rounded-md bg-ink px-4 py-2 text-canvas focus:not-sr-only focus:fixed focus:left-4 focus:top-3"
+      >
+        Skip to content
+      </a>
+      <main id="main" className="mx-auto flex w-[min(100%_-_3rem,560px)] flex-col items-center gap-10 pb-[168px] md:gap-12">
         <HeroSection />
-        <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection />
-        <EducationSection />
-        <div className="bg-AboutBackground">
-          <AboutSection />
-        </div>
+        <SkillsSection />
         <ContactSection />
-        <div className="bg-slate-700">
-          <Footer />
-        </div>
       </main>
+      <Footer />
     </div>
   );
 };

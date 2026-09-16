@@ -22,15 +22,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
     <Toaster
-      position="top-right"
+      position="top-center"
       toastOptions={{
         style: {
-          background: "#111827",
-          color: "#f8fafc",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "18px",
-          boxShadow: "0 18px 45px rgba(0,0,0,0.35)",
-          padding: "16px 18px",
+          background: "#060606",
+          color: "#FAF5F5",
+          borderRadius: "14px",
+          padding: "10px 14px",
+          fontSize: "14px",
           maxWidth: "420px",
         },
       }}

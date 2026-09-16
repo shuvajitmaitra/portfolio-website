@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gray-900 min-h-screen">
+    <div className="min-h-screen bg-canvas text-ink">
       <Outlet></Outlet>
     </div>
   );
