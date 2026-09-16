@@ -1,21 +1,44 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import casualImage from "../../assets/images/profile/shuvajit-maitra-casual.jpg";
 import formalImage from "../../assets/images/profile/shuvajit-maitra-formal.webp";
-import banglaMarketIcon from "../../assets/images/projects/bangla-market-icon.jpg";
+import brandtechLogo from "../../assets/images/logos/brandtech.webp";
+import sdbItLogo from "../../assets/images/logos/sdb-it.webp";
+import eubLogo from "../../assets/images/logos/eub.webp";
+import dpiLogo from "../../assets/images/logos/dpi.webp";
 
-const photos = [
-  { src: formalImage, className: "-rotate-[10deg] translate-x-3" },
-  { src: casualImage, className: "z-10 -translate-y-1" },
-  { src: banglaMarketIcon, className: "rotate-[9deg] -translate-x-3" },
+const cards = [
+  { src: formalImage, label: "Hello, I’m Shuvajit", href: null, fit: "object-cover", bg: "bg-white" },
+  { src: brandtechLogo, label: "BrandTech", href: "https://brandtechit.com/", fit: "object-contain", bg: "bg-[#0C0C10]" },
+  { src: sdbItLogo, label: "SDB IT", href: "https://www.linkedin.com/company/software-driven-business-it/", fit: "object-contain", bg: "bg-white" },
+  { src: eubLogo, label: "European University of Bangladesh", href: "https://eub.edu.bd/", fit: "object-contain", bg: "bg-white" },
+  { src: dpiLogo, label: "Digital Polytechnic Institute", href: "https://www.linkedin.com/company/polytechnickhulna/", fit: "object-contain", bg: "bg-white" },
 ];
+
+// At rest the cards sit in an arc, like a hand of cards: tilted out from the centre and dropping toward the edges.
+const ARC_TILT = 6; // degrees per step from the centre
+const ARC_DROP = 1.5; // px per step squared from the centre
+const cardRest = (index: number, count: number) => {
+  const offset = index - (count - 1) / 2;
+  return { rotate: offset * ARC_TILT, y: offset * offset * ARC_DROP };
+};
+// How far neighbours slide away from the hovered card, in px.
+const CARD_PUSH = 12;
+
+const cardTransform = (index: number, active: number | null) => {
+  const { rotate, y } = cardRest(index, cards.length);
+  if (active === null) return `translate(0px, ${y}px) rotate(${rotate}deg)`;
+  if (index === active) return "translate(0px, -10px) rotate(0deg) scale(1.2)";
+  const shift = Math.sign(index - active) * CARD_PUSH;
+  return `translate(${shift}px, ${y + 3}px) rotate(${rotate * 1.3}deg) scale(0.95)`;
+};
 
 const fieldClass =
   "w-full rounded-xl border border-rule/70 bg-white/70 px-3.5 py-2.5 text-[15px] text-ink placeholder:text-faint transition-colors duration-300 ease-out focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15";
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -55,17 +78,50 @@ const ContactSection = () => {
           <h2 className="text-base font-medium leading-[1.6] tracking-[-0.12px] text-body">Have an app in mind? Let’s build it.</h2>
           <p className="text-[14px] leading-[1.6] tracking-[-0.12px] text-body/80">Send a message and I’ll get back to you soon.</p>
         </div>
-        <div className="flex items-center pr-2" aria-hidden="true">
-          {photos.map((photo, index) => (
-            <img
-              key={index}
-              src={photo.src}
-              alt=""
-              loading="lazy"
-              className={`-mx-2 h-[56px] w-[42px] rounded-[6px] border-2 border-white object-cover shadow-[0_3px_8px_rgba(0,0,0,0.16)] transition-transform duration-300 ease-out ${photo.className}`}
-            />
-          ))}
-        </div>
+        {/* A fan of cards: the hovered one lifts, straightens and shows its caption while its neighbours make room. */}
+        <ul className="flex items-center pl-3 pr-5" onMouseLeave={() => setActiveCard(null)}>
+          {cards.map((card, index) => {
+            const active = activeCard === index;
+            const inner = (
+              <>
+                <span
+                  className={`block h-[56px] w-[42px] overflow-hidden rounded-[8px] border-2 border-white transition-[transform,box-shadow] duration-[400ms] ease-out motion-reduce:transition-none ${card.bg} ${
+                    active ? "shadow-[0_14px_24px_-8px_rgba(0,0,0,0.35)]" : "shadow-[0_3px_8px_rgba(0,0,0,0.16)]"
+                  }`}
+                  style={{ transform: cardTransform(index, activeCard) }}
+                >
+                  <img src={card.src} alt="" loading="lazy" draggable={false} className={`h-full w-full select-none object-top ${card.fit}`} />
+                </span>
+                <span
+                  className={`pointer-events-none absolute bottom-full left-1/2 mb-4 -translate-x-1/2 whitespace-nowrap rounded-[4px] bg-ink px-2 py-1 font-mono text-[11px] uppercase leading-none tracking-[1px] text-white transition-[opacity,transform] duration-200 ease-out ${
+                    active ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+                  }`}
+                >
+                  {card.label}
+                </span>
+              </>
+            );
+            const handlers = {
+              onMouseEnter: () => setActiveCard(index),
+              onFocus: () => setActiveCard(index),
+              onBlur: () => setActiveCard(null),
+            };
+            return (
+              <li key={card.label} className="relative -ml-3 first:ml-0" style={{ zIndex: active ? cards.length + 1 : index + 1 }}>
+                {card.href ? (
+                  <a href={card.href} target="_blank" rel="noopener noreferrer" className="relative block focus-visible:outline-none" {...handlers}>
+                    {inner}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ) : (
+                  <span className="relative block" {...handlers}>
+                    {inner}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3">

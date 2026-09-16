@@ -22,7 +22,12 @@ const HeroSection = () => {
       <div className="motion-safe:animate-reveal">
         <div className="relative h-[292px] w-[146px] rounded-[38px] bg-gradient-to-b from-[#F4F0F0] to-[#E1DCDC] p-[7px] shadow-[0_28px_40px_-22px_rgba(0,0,0,0.45),0_2px_6px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,0,0,0.08)]">
           <div className="relative h-full w-full overflow-hidden rounded-[31px] bg-white ring-1 ring-black/10">
-            <img src={profileImage} alt="Shuvajit Maitra" className="absolute inset-x-0 bottom-0 h-[88%] w-full object-cover object-top" />
+            <img
+              src={profileImage}
+              alt="Shuvajit Maitra"
+              draggable={false}
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[88%] w-full select-none object-cover object-top"
+            />
             <span className="absolute left-1/2 top-[9px] h-[15px] w-[46px] -translate-x-1/2 rounded-full bg-black"></span>
             <span className="absolute bottom-[7px] left-1/2 h-[3px] w-[48px] -translate-x-1/2 rounded-full bg-white/80"></span>
           </div>
@@ -35,7 +40,7 @@ const HeroSection = () => {
       <div id="About" className="w-full max-w-[460px] text-center motion-safe:animate-reveal motion-safe:[animation-delay:60ms]">
         <h1 className="text-base font-medium leading-[1.8] tracking-[-0.12px] text-ink">Mobile Application Developer</h1>
         <p className="text-base leading-[1.6] tracking-[-0.12px] text-body/80">
-          Building React Native and Flutter apps for iOS and Android, from the first wireframe to the store release.
+          2.5+ years of professional experience building React Native and Flutter apps for iOS and Android, from the first wireframe to the store release.
         </p>
       </div>
     </section>

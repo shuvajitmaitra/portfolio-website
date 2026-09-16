@@ -9,6 +9,10 @@ import banglaMarketIcon from "../../assets/images/projects/bangla-market-icon.jp
 import banglaMarketScreenshot from "../../assets/images/projects/bangla-market-screenshot.jpg";
 import affsflowIcon from "../../assets/images/projects/affsflow-icon.webp";
 import clicktechIcon from "../../assets/images/projects/clicktech-icon.webp";
+import brandtechLogo from "../../assets/images/logos/brandtech.webp";
+import sdbItLogo from "../../assets/images/logos/sdb-it.webp";
+import eubLogo from "../../assets/images/logos/eub.webp";
+import dpiLogo from "../../assets/images/logos/dpi.webp";
 
 type ProjectLink = {
   label: string;
@@ -29,7 +33,10 @@ type TimelineEntry = {
   year: string | null;
   route: string | null;
   monogram: string;
+  // Replaces the monogram when set.
+  logo: string | null;
   company: string;
+  website: string | null;
   current: boolean;
   role: string;
   description: string;
@@ -42,7 +49,9 @@ const timeline: TimelineEntry[] = [
     year: "2026",
     route: "BOG",
     monogram: "BT",
+    logo: brandtechLogo,
     company: "BrandTech",
+    website: "https://brandtechit.com/",
     current: true,
     role: "Mobile Application Developer",
     description:
@@ -69,7 +78,9 @@ const timeline: TimelineEntry[] = [
     year: "2024",
     route: "DHK",
     monogram: "SDB",
+    logo: sdbItLogo,
     company: "SDB IT",
+    website: "https://www.linkedin.com/company/software-driven-business-it/",
     current: false,
     role: "Mobile Application Developer",
     description:
@@ -112,7 +123,9 @@ const timeline: TimelineEntry[] = [
     year: null,
     route: "Web",
     monogram: "</>",
+    logo: null,
     company: "Web projects",
+    website: null,
     current: false,
     role: "Full-stack Web Developer",
     description: "Full-stack projects with React, Express, and MongoDB that built my frontend foundation.",
@@ -154,7 +167,9 @@ const timeline: TimelineEntry[] = [
     year: "2021",
     route: "DHK",
     monogram: "EUB",
+    logo: eubLogo,
     company: "European University of Bangladesh",
+    website: "https://eub.edu.bd/",
     current: false,
     role: "BSc in Electrical and Electronic Engineering",
     description: "2021 – 2025. A foundation in electrical systems, electronics, and problem-solving.",
@@ -165,7 +180,9 @@ const timeline: TimelineEntry[] = [
     year: "2015",
     route: "BD",
     monogram: "DPI",
+    logo: dpiLogo,
     company: "Digital Polytechnic Institute",
+    website: "https://www.linkedin.com/company/polytechnickhulna/",
     current: false,
     role: "Diploma in Electrical Engineering",
     description: "2015 – 2019. Technical fundamentals and hands-on engineering practice.",
@@ -344,8 +361,12 @@ const ExperienceSection = () => {
               className="flex flex-col motion-safe:animate-reveal"
               style={{ animationDelay: `${120 + index * 60}ms` }}
             >
-              <span className="mb-1.5 flex h-7 w-7 items-center justify-center rounded-full border border-rule/60 bg-white font-mono text-[8px] font-medium tracking-tight text-body shadow-[0_0_0_1px_#fff]">
-                {entry.monogram}
+              <span className="mb-1.5 flex h-7 w-7 items-center justify-center overflow-hidden rounded-full border border-rule/60 bg-white font-mono text-[8px] font-medium tracking-tight text-body shadow-[0_0_0_1px_#fff]">
+                {entry.logo ? (
+                  <img src={entry.logo} alt="" loading="lazy" draggable={false} className="h-full w-full select-none object-cover" />
+                ) : (
+                  entry.monogram
+                )}
               </span>
 
               <div className="relative flex items-center gap-2.5">
@@ -358,7 +379,21 @@ const ExperienceSection = () => {
                   aria-hidden="true"
                   className={`absolute top-1/2 z-10 h-[13px] w-[13px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dot-line bg-canvas transition-colors duration-300 ease-out after:absolute after:left-1/2 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-dot-fill after:transition-colors after:duration-300 after:content-[''] data-[lit=true]:border-accent data-[lit=true]:after:bg-accent ${dotLeft}`}
                 ></span>
-                <h2 className="text-base font-medium leading-[1.8] tracking-[-0.12px] text-ink">{entry.company}</h2>
+                <h2 className="text-base font-medium leading-[1.8] tracking-[-0.12px] text-ink">
+                  {entry.website ? (
+                    <a
+                      href={entry.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-sm transition-colors duration-300 hover:text-accent focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    >
+                      {entry.company}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    entry.company
+                  )}
+                </h2>
                 {entry.current && (
                   <span className="pt-[3px] font-mono text-[12px] font-medium uppercase leading-none tracking-[0.96px] text-accent">
                     Current
