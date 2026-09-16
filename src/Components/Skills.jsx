@@ -176,7 +176,7 @@ const Skills = () => {
   );
 
   return (
-    <div id="Skill" className="min-h-screen bg-gray-900 text-white pt-28 overflow-hidden">
+    <div id="Skills" className="min-h-screen bg-gray-900 text-white pt-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">

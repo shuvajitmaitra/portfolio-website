@@ -6,7 +6,7 @@ import Experience from "../Components/Experience";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Projects from "../Components/Projects";
-import Skill from "../Components/Skill";
+import Skills from "../Components/Skills";
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
       </nav>
       <main className="">
         <Banner></Banner>
-        <Skill></Skill>
+        <Skills />
         <Experience />
         <Projects></Projects>
         <Education />
