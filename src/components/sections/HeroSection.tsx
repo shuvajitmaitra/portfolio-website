@@ -1,8 +1,9 @@
-import profileImage from "../assets/shuvajit_maitra_full_formal.webp";
+import profileImage from "../../assets/images/profile/shuvajit-maitra-formal.webp";
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { FiArrowDownRight, FiDownload } from "react-icons/fi";
+import type { MouseEvent } from "react";
 import { Link } from "react-router-dom";
-export const resume = "https://github.com/shuvajitmaitra/portfolio-website/releases/download/resume/Shuvajit_Maitra_Resume.pdf";
+const resume = "https://github.com/shuvajitmaitra/portfolio-website/releases/download/resume/Shuvajit_Maitra_Resume.pdf";
 const socialLinks = [
   {
     name: "LinkedIn",
@@ -21,8 +22,8 @@ const socialLinks = [
   },
 ];
 
-const Banner = () => {
-  const handleSeeWorks = (event) => {
+const HeroSection = () => {
+  const handleSeeWorks = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     document.getElementById("Project")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -142,4 +143,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HeroSection;

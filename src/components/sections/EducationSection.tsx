@@ -1,7 +1,7 @@
 import { FaCalendarAlt, FaGraduationCap, FaUniversity } from "react-icons/fa";
 import { MdElectricalServices } from "react-icons/md";
 
-const Education = () => {
+const EducationSection = () => {
   const educationData = [
     {
       id: 1,
@@ -121,4 +121,4 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default EducationSection;

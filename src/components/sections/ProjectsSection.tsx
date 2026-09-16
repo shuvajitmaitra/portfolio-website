@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   FaArrowRight,
   FaCloud,
@@ -23,15 +23,46 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import quickskill from "../assets/quickskill.png";
-import skillbnk from "../assets/skillbnk.png";
-import media from "../assets/media-hunter.png";
-import novel from "../assets/novel-nexus.png";
-import inventory from "../assets/inventory.png";
-import banglaMarketIcon from "../assets/bangla-market-icon.jpg";
-import banglaMarketScreenshot from "../assets/bangla-market-screenshot.jpg";
+import quickskill from "../../assets/images/projects/quick-skill.png";
+import skillbnk from "../../assets/images/projects/skillbnk.png";
+import media from "../../assets/images/projects/media-hunter.png";
+import novel from "../../assets/images/projects/novel-nexus.png";
+import inventory from "../../assets/images/projects/inventory.png";
+import banglaMarketIcon from "../../assets/images/projects/bangla-market-icon.jpg";
+import banglaMarketScreenshot from "../../assets/images/projects/bangla-market-screenshot.jpg";
 
-const projects = [
+type ProjectCategory = "mobile" | "web";
+
+type Technology = {
+  icon: ReactNode;
+  name: string;
+  color: string;
+};
+
+type Project = {
+  id: number;
+  name: string;
+  category: ProjectCategory;
+  featured: boolean;
+  thumbnail: string;
+  logo?: string;
+  type: string;
+  impact: string;
+  gradient: string;
+  description: string;
+  summary?: string;
+  features: string[];
+  technologies: Technology[];
+  links: {
+    appStore?: string | null;
+    playStore?: string | null;
+    client?: string | null;
+    server?: string | null;
+    live?: string | null;
+  };
+};
+
+const projects: Project[] = [
   {
     id: 6,
     name: "Bangla Market",
@@ -225,14 +256,14 @@ const projects = [
   },
 ];
 
-const categories = [
+const categories: { id: ProjectCategory | "all"; name: string; icon: ReactNode }[] = [
   { id: "all", name: "All Projects", icon: <FaCode /> },
   { id: "mobile", name: "Mobile Apps", icon: <FaMobile /> },
   { id: "web", name: "Web Apps", icon: <FaDesktop /> },
 ];
 
-const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+const ProjectsSection = () => {
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory | "all">("all");
 
   const filteredProjects = activeCategory === "all" ? projects : projects.filter((project) => project.category === activeCategory);
   const featuredProject = filteredProjects.find((project) => project.featured) || filteredProjects[0];
@@ -240,7 +271,7 @@ const Projects = () => {
   const mobileProjects = supportingProjects.filter((project) => project.category === "mobile");
   const webProjects = supportingProjects.filter((project) => project.category === "web");
 
-  const renderProjectCard = (project) => (
+  const renderProjectCard = (project: Project) => (
     <article
       key={project.id}
       className="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-800/70 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40"
@@ -588,4 +619,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsSection;

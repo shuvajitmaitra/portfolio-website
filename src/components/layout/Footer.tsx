@@ -1,11 +1,11 @@
-import logo from "../assets/shuvajit-maitra-logo.png";
+import logo from "../../assets/images/brand/shuvajit-maitra-logo.png";
 
 const Footer = () => {
   const navLinks = ["Home", "Skills", "Project", "Education", "About", "Contact"];
 
-  const handleNavLink = (nav) => {
+  const handleNavLink = (nav: string) => {
     const handleClickNavLink = () => {
-      document.getElementById(nav).scrollIntoView({ behavior: "smooth" });
+      document.getElementById(nav)?.scrollIntoView({ behavior: "smooth" });
     };
     return (
       <ul key={nav}>

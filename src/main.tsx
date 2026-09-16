@@ -1,24 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./styles/index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Layout from "./MainLayout/Layout";
-import Home from "./Pages/Home";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
 import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout></Layout>,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <HomePage />,
       },
     ],
   },
 ]);
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
     <Toaster

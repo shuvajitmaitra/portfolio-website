@@ -31,8 +31,8 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
-const Skills = () => {
-  const [hoveredSkill, setHoveredSkill] = useState(null);
+const SkillsSection = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const featuredFrameworks = [
     {
@@ -384,4 +384,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default SkillsSection;

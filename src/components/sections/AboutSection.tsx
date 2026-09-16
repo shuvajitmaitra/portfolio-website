@@ -1,4 +1,4 @@
-import profileImage from "../assets/Shuvajit_Maitra.jpg";
+import profileImage from "../../assets/images/profile/shuvajit-maitra-casual.jpg";
 
 const focusAreas = [
   "Cross-platform mobile apps",
@@ -7,7 +7,7 @@ const focusAreas = [
   "Reliable product delivery",
 ];
 
-const About = () => {
+const AboutSection = () => {
   return (
     <section id="About" className="relative overflow-hidden py-20 sm:py-28 text-white">
       <div className="absolute inset-0 bg-black/30"></div>
@@ -87,4 +87,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutSection;

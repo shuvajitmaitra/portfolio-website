@@ -26,13 +26,13 @@ It is a dark-themed, fully responsive site. Keep the implementation simple and r
 ## Tech Stack
 
 - Vite 5
-- React 18 (JavaScript with JSX, no TypeScript)
+- React 18 with TypeScript 5 (`.tsx`, strict mode)
 - React Router DOM 6 (a single `/` route)
 - Tailwind CSS 3 with PostCSS and Autoprefixer
 - react-icons for all icons
-- react-hot-toast for notifications (the `<Toaster>` is configured in `src/main.jsx`)
+- react-hot-toast for notifications (the `<Toaster>` is configured in `src/main.tsx`)
 - @emailjs/browser for the contact form
-- ESLint 8 with the react, react-hooks, and react-refresh plugins
+- ESLint 8 with @typescript-eslint and the react, react-hooks, and react-refresh plugins
 - Firebase Hosting for deployment (serves `dist/`)
 
 `firebase` is listed in `package.json` but no code uses it. Do not add Firebase code without approval.
@@ -69,22 +69,37 @@ Do not install new libraries without approval.
 Use this folder structure:
 
 ```
-index.html          HTML shell, page title, favicon
-public/             Static files served as-is (favicon logo)
+index.html                  HTML shell, page title, favicon
+public/                     Static files served as-is (favicon logo)
 src/
-  main.jsx          App entry: router and global Toaster
-  index.css         Tailwind directives and the global Poppins font
-  MainLayout/       Layout.jsx, the page wrapper that renders <Outlet />
-  Pages/            Home.jsx, which puts all sections together in order
-  Components/       One file per page section (Banner, Skills, Projects, ...)
-  assets/           Images imported by components
+  main.tsx                  App entry: router and global Toaster
+  vite-env.d.ts             Vite client types (image imports, import.meta.env)
+  styles/
+    index.css               Tailwind directives and the global Poppins font
+  layouts/
+    MainLayout.tsx          Page wrapper that renders <Outlet />
+  pages/
+    HomePage.tsx            Puts all sections together in order
+  components/
+    layout/                 Site chrome shown around the sections (Navbar, Footer)
+    sections/               One file per page section (HeroSection, SkillsSection, ...)
+  assets/
+    images/
+      brand/                Logo
+      profile/              Profile photos
+      projects/             Project thumbnails and icons
+      backgrounds/          Section background images
 ```
 
-**Pages/** is for composition only. `Home.jsx` places the sections in order and adds section wrappers such as backgrounds. It should not contain large UI blocks or data.
+**Naming:** folders are lowercase. Component files use PascalCase and match their default export (`ProjectsSection.tsx` exports `ProjectsSection`). Page files end in `Page`, section files end in `Section`, and layout files end in `Layout`. Image files are lowercase and hyphenated.
 
-**Components/** holds one component per section of the page. Each section's root element has an `id` that the navbar uses to scroll to it (`Home`, `Skills`, `Experience`, `Project`, `Education`, `About`, `Contact`). If you add or rename a section, update its `id` and the `navLinks` array in `Navbar.jsx` together so they match exactly.
+**pages/** is for composition only. `HomePage.tsx` places the sections in order and adds section wrappers such as backgrounds. It should not contain large UI blocks or data.
 
-**Content data** (projects, skills, experience, education) lives as an array constant at the top of the section component that uses it, for example `projects` in `Projects.jsx`. Follow that pattern. When editing content, change the data array, not the JSX.
+**components/sections/** holds one component per section of the page. Each section's root element has an `id` that the navbar uses to scroll to it (`Home`, `Skills`, `Experience`, `Project`, `Education`, `About`, `Contact`). If you add or rename a section, update its `id` and the `navLinks` array in `Navbar.tsx` together so they match exactly.
+
+**components/layout/** holds the `Navbar` and `Footer`, which are not sections themselves.
+
+**Content data** (projects, skills, experience, education) lives as an array constant at the top of the section component that uses it, for example `projects` in `ProjectsSection.tsx`. Follow that pattern. When editing content, change the data array, not the JSX.
 
 Do not create a new component file for a small piece that only one section uses. Split a section into sub-components inside the same file only when it makes the file easier to read.
 
@@ -108,11 +123,11 @@ Use Tailwind utility classes in `className`. Do not write custom CSS or inline `
 
 Use the Tailwind version installed in this project. Check `package.json`. Do not upgrade without approval.
 
-Put shared theme values (background images, colors, fonts) in `tailwind.config.js` under `theme.extend`, not in component files.
+Put shared theme values (background images, colors, fonts) in `tailwind.config.ts` under `theme.extend`, not in component files.
 
 ### Style Exception List
 
-Use inline styles or `src/index.css` for:
+Use inline styles or `src/styles/index.css` for:
 
 - Values computed at runtime (for example, a width derived from state)
 - Third-party components that take style props instead of classes (for example, `Toaster` `toastOptions`)
@@ -124,10 +139,10 @@ Everywhere else, use Tailwind.
 
 ## Image Rule
 
-Put image files in `src/assets/` and import them at the top of the component that uses them:
+Put image files in the matching `src/assets/images/` subfolder and import them at the top of the component that uses them:
 
-```jsx
-import profileImage from "../assets/Shuvajit_Maitra.jpg";
+```tsx
+import profileImage from "../../assets/images/profile/shuvajit-maitra-casual.jpg";
 
 <img src={profileImage} alt="Shuvajit Maitra" />
 ```
@@ -142,17 +157,20 @@ import profileImage from "../assets/Shuvajit_Maitra.jpg";
 
 ## State Management
 
-- Use local React state (`useState`, `useRef`) inside the section component that needs it, for example the project filter in `Projects.jsx` and the form in `Contact.jsx`.
-- There is no global state library. Do not add one. If state must be shared across sections, lift it to `Home.jsx` and ask first.
+- Use local React state (`useState`, `useRef`) inside the section component that needs it, for example the project filter in `ProjectsSection.tsx` and the form in `ContactSection.tsx`.
+- There is no global state library. Do not add one. If state must be shared across sections, lift it to `HomePage.tsx` and ask first.
 - There is no persistence. Do not add `localStorage` without approval.
 
 ---
 
-## JavaScript Rules
+## TypeScript Rules
 
-- This project is JavaScript with JSX. Do not convert files to TypeScript unless asked.
+- This project is TypeScript with `strict` enabled. Write new files as `.ts` / `.tsx`.
+- Type props, state, refs, and event handlers explicitly where inference is not enough. Avoid `any`.
+- Define a type for each content data array (for example `Project` in `ProjectsSection.tsx`).
+- `npm run build` runs `tsc -b` first, so type errors fail the build. Use `npm run typecheck` to check types alone.
 - Use function components and hooks. No class components.
-- Default-export each section component, matching the existing files.
+- Default-export every component, with the export name matching the file name.
 - Keep data shapes consistent inside each array: every item has the same keys.
 - Follow the ESLint config. `npm run lint` must pass with zero warnings.
 
@@ -183,7 +201,7 @@ Commands:
 ## Secrets
 
 - Never put secret keys in client code. Everything in `src/` ships to the browser.
-- The EmailJS service ID, template ID, and public key in `Contact.jsx` are public by design. Nothing else sensitive belongs in the frontend.
+- The EmailJS service ID, template ID, and public key in `ContactSection.tsx` are public by design. Nothing else sensitive belongs in the frontend.
 - Read environment values through `import.meta.env.VITE_*`, keep them in a gitignored `.env.local`, and document the variable names in `.env.example`.
 - Any private API key or token must go through a server or serverless function, never the Vite bundle.
 

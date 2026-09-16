@@ -1,26 +1,27 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import { FaComments, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaPhone, FaUser } from "react-icons/fa";
 
-export const Contact = () => {
+const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) return;
     setIsSubmitting(true);
 
     try {
@@ -35,7 +36,8 @@ export const Contact = () => {
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Email send failed:", error);
-      toast.error(error?.text || "Message could not be sent. Please try again.", {
+      const errorText = error instanceof Object && "text" in error ? String(error.text) : "";
+      toast.error(errorText || "Message could not be sent. Please try again.", {
         duration: 5000,
         iconTheme: {
           primary: "#ef4444",
@@ -169,7 +171,7 @@ export const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  rows="3"
+                  rows={3}
                   className="w-full px-4 py-4 bg-gray-700 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none text-white placeholder-gray-400 resize-none transition-all duration-300"
                   placeholder="Tell me about your project or just say hello..."
                 />
@@ -205,4 +207,4 @@ export const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactSection;

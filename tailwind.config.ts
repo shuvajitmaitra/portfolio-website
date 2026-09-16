@@ -1,15 +1,16 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
+
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'AboutBackground': "url('/src/assets/about-bg.png')",
+        'AboutBackground': "url('/src/assets/images/backgrounds/about-background.png')",
       }
     },
   },
   plugins: [],
-}
+} satisfies Config;

@@ -1,29 +1,29 @@
-import About from "../Components/About";
-import Banner from "../Components/Banner";
-import { Contact } from "../Components/Contact";
-import Education from "../Components/Education";
-import Experience from "../Components/Experience";
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
-import Projects from "../Components/Projects";
-import Skills from "../Components/Skills";
+import Footer from "../components/layout/Footer";
+import Navbar from "../components/layout/Navbar";
+import AboutSection from "../components/sections/AboutSection";
+import ContactSection from "../components/sections/ContactSection";
+import EducationSection from "../components/sections/EducationSection";
+import ExperienceSection from "../components/sections/ExperienceSection";
+import HeroSection from "../components/sections/HeroSection";
+import ProjectsSection from "../components/sections/ProjectsSection";
+import SkillsSection from "../components/sections/SkillsSection";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div id="Home">
       <nav className="sticky w-full top-0 bg-gray-900 z-50 ">
-        <Navbar></Navbar>
+        <Navbar />
       </nav>
       <main className="">
-        <Banner></Banner>
-        <Skills />
-        <Experience />
-        <Projects></Projects>
-        <Education />
+        <HeroSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <EducationSection />
         <div className="bg-AboutBackground">
-          <About></About>
+          <AboutSection />
         </div>
-        <Contact />
+        <ContactSection />
         <div className="bg-slate-700">
           <Footer />
         </div>
@@ -31,4 +31,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default HomePage;

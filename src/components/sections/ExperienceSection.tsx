@@ -53,7 +53,7 @@ const deliveryHighlights = [
   },
 ];
 
-const Experience = () => {
+const ExperienceSection = () => {
   return (
     <section id="Experience" className="bg-gray-900 text-white py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -177,4 +177,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default ExperienceSection;
