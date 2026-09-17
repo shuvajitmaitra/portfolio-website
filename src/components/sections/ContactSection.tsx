@@ -8,8 +8,8 @@ import eubLogo from "../../assets/images/logos/eub.webp";
 import dpiLogo from "../../assets/images/logos/dpi.webp";
 
 const cards = [
-  { src: formalImage, label: "Hello, I’m Shuvajit", href: null, fit: "object-cover", bg: "bg-white" },
-  { src: brandtechLogo, label: "BrandTech", href: "https://brandtechit.com/", fit: "object-contain", bg: "bg-[#0C0C10]" },
+  { src: formalImage, label: "Hello, I’m Shuvajit", href: null, fit: "object-cover object-top", bg: "bg-white" },
+  { src: brandtechLogo, label: "BrandTech", href: "https://brandtechit.com/", fit: "object-contain", bg: "bg-white" },
   { src: sdbItLogo, label: "SDB IT", href: "https://www.linkedin.com/company/software-driven-business-it/", fit: "object-contain", bg: "bg-white" },
   { src: eubLogo, label: "European University of Bangladesh", href: "https://eub.edu.bd/", fit: "object-contain", bg: "bg-white" },
   { src: dpiLogo, label: "Digital Polytechnic Institute", href: "https://www.linkedin.com/company/polytechnickhulna/", fit: "object-contain", bg: "bg-white" },
@@ -63,9 +63,9 @@ const ContactSection = () => {
       toast.success("Message sent. I’ll get back to you soon.", { duration: 4000 });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      // Provider errors (e.g. an expired Gmail connection in EmailJS) stay in the console; visitors get a way to reach me instead.
       console.error("Email send failed:", error);
-      const errorText = error instanceof Object && "text" in error ? String(error.text) : "";
-      toast.error(errorText || "Message not sent. Check your connection and try again.", { duration: 5000 });
+      toast.error("Message not sent. Please try again or email shuvajitmaitra@gmail.com.", { duration: 6000 });
     } finally {
       setIsSubmitting(false);
     }
@@ -90,7 +90,7 @@ const ContactSection = () => {
                   }`}
                   style={{ transform: cardTransform(index, activeCard) }}
                 >
-                  <img src={card.src} alt="" loading="lazy" draggable={false} className={`h-full w-full select-none object-top ${card.fit}`} />
+                  <img src={card.src} alt="" loading="lazy" draggable={false} className={`h-full w-full select-none ${card.fit}`} />
                 </span>
                 <span
                   className={`pointer-events-none absolute bottom-full left-1/2 mb-4 -translate-x-1/2 whitespace-nowrap rounded-[4px] bg-ink px-2 py-1 font-mono text-[11px] uppercase leading-none tracking-[1px] text-white transition-[opacity,transform] duration-200 ease-out ${

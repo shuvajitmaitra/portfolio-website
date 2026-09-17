@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "shuvajit-maitra",
     "public": "dist",
     "ignore": [
       "firebase.json",

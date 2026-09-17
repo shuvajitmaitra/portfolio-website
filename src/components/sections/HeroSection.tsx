@@ -26,7 +26,7 @@ const HeroSection = () => {
               src={profileImage}
               alt="Shuvajit Maitra"
               draggable={false}
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-[88%] w-full select-none object-cover object-top"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[80%] w-full select-none object-cover object-top"
             />
             <span className="absolute left-1/2 top-[9px] h-[15px] w-[46px] -translate-x-1/2 rounded-full bg-black"></span>
             <span className="absolute bottom-[7px] left-1/2 h-[3px] w-[48px] -translate-x-1/2 rounded-full bg-white/80"></span>

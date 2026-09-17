@@ -322,7 +322,7 @@ const ExperienceSection = () => {
           aria-hidden="true"
           className="absolute -top-[115px] left-[calc(50%-24px)] w-12 text-center text-accent md:-top-[106px] md:left-[-3px]"
         >
-          <span className="block font-mono text-[6px] font-medium uppercase leading-[6px] tracking-[0.76px]">Release log</span>
+          <span className="block font-mono text-[6px] font-bold uppercase leading-[6px] tracking-[0.76px]">Release log</span>
           <span ref={iconRef} className="mx-auto mt-2.5 block h-[15px] w-4">
             <FiGitCommit className="h-full w-full" />
           </span>
